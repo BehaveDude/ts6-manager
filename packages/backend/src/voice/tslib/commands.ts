@@ -37,13 +37,20 @@ export function tsUnescape(str: string): string {
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "\\") {
       i++;
-      if (i >= str.length) throw new Error("Invalid escape sequence");
+      if (i >= str.length) {
+        // Trailing backslash, treat literally
+        result += "\\";
+        break;
+      }
       const mapped = UNESCAPE_MAP[str[i]];
       if (mapped === undefined) {
-        result += str[i]; 
+        // Unknown escape: keep character as literal (forward-compatible with TS6 betas)
+        result += str[i];
       } else {
         result += mapped;
       }
+    } else {
+      result += str[i];
     }
   }
   return result;
