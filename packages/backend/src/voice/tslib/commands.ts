@@ -39,11 +39,11 @@ export function tsUnescape(str: string): string {
       i++;
       if (i >= str.length) throw new Error("Invalid escape sequence");
       const mapped = UNESCAPE_MAP[str[i]];
-      if (mapped === undefined)
-        throw new Error(`Unknown escape: \\${str[i]}`);
-      result += mapped;
-    } else {
-      result += str[i];
+      if (mapped === undefined) {
+        result += str[i]; 
+      } else {
+        result += mapped;
+      }
     }
   }
   return result;
