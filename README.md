@@ -1,3 +1,5 @@
+This is my fork of TS6-Manager with a small fix for the new ARM based TS6-Server. Fixes the Escape route /H error with music bots.
+
 #### DISCLAIMER: 
 ![AI Assisted](https://img.shields.io/badge/AI%20Assisted-Project-00ADD8?style=for-the-badge&logo=dependabot&logoColor=white)
 
